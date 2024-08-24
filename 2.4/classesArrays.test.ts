@@ -10,7 +10,7 @@ class Employees {
     name: string;
     phone: number;
     title: string;
-
+//to use the class outside of the {} we need a constructor
     constructor(name:string, phone:number, title:string) {
       this.name = name; 
       this.phone = phone; 
@@ -35,6 +35,15 @@ const saveBtn: By = By.id("saveBtn");
 
 let myFunc = async (employees) => {
    //Create a function to add an employee.
+   await driver.findElement(addEmployee).click(); 
+    await driver.findElement(newEmployee).click(); 
+    await driver.findElement(nameInput).clear(); 
+    await driver.findElement(nameInput).sendKeys(employees.name); 
+    await driver.findElement(phoneInput).clear(); 
+    await driver.findElement(phoneInput).sendKeys(employees.phone); 
+    await driver.findElement(titleInput).clear(); 
+    await driver.findElement(titleInput).sendKeys(employees.title); 
+    await driver.findElement(saveBtn).click();
 }; 
 
 describe("should add employees to employee manager", () => {
