@@ -7,18 +7,31 @@ const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 
 class Employees {
   // Write a class that holds the name, phone, and title for the employee.
+    name: string;
+    phone: number;
+    title: string;
+
+    constructor(name:string, phone:number, title:string) {
+      this.name = name; 
+      this.phone = phone; 
+      this.title = title; 
+  }; 
 }; 
 
 let employees: Array<Employees> = [
   //Create an array of four employees using your class. 
-]
+    new Employees('Dale', 1254591256, 'Chipmunk'),
+    new Employees("Chip", 8459561223, "Chipmunk"),
+    new Employees("Alvin", 1234564556, "Chipmunk"),
+    new Employees("Simon", 4561234556, "Chipmunk")
+];
 
-const addEmployee: By = By.//fill in the blank
-const newEmployee: By = By.// fill in the blank
-const nameInput: By = By. // fill in the blank
-const phoneInput: By = By. // fill in the blank
-const titleInput: By = By. // fill in the blank
-const saveBtn: By = By. // fill in the blank 
+const addEmployee: By = By.name("addEmployee");
+const newEmployee: By = By.xpath('//li[text() = "New Employee"]');
+const nameInput: By = By.name("nameEntry");
+const phoneInput: By = By.name("phoneEntry");
+const titleInput: By = By.name("titleEntry");
+const saveBtn: By = By.id("saveBtn");
 
 let myFunc = async (employees) => {
    //Create a function to add an employee.
