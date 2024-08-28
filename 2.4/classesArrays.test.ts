@@ -6,7 +6,7 @@ const chromedriver = require("chromedriver");
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build(); 
 
 class Employees {
-  // Write a class that holds the name, phone, and title for the employee.
+  // Write a class that holds the name, phone, and title (parameters, what variables do you want to use) for the employee.
     name: string;
     phone: number;
     title: string;
@@ -17,7 +17,7 @@ class Employees {
       this.title = title; 
   }; 
 }; 
-
+//now that the class is outside {} it is now an object
 let employees: Array<Employees> = [
   //Create an array of four employees using your class. 
     new Employees('Dale', 1254591256, 'Chipmunk'),
@@ -31,19 +31,20 @@ const newEmployee: By = By.xpath('//li[text() = "New Employee"]');
 const nameInput: By = By.name("nameEntry");
 const phoneInput: By = By.name("phoneEntry");
 const titleInput: By = By.name("titleEntry");
-const saveBtn: By = By.id("saveBtn");
+const saveBtn: By = By.id("saveBtn"); //or could be By.css('.confirmationButton'); can use if not more than one class, 
+//if more than one, needs to be xpath
 
 let myFunc = async (employees) => {
    //Create a function to add an employee.
    await driver.findElement(addEmployee).click(); 
-    await driver.findElement(newEmployee).click(); 
-    await driver.findElement(nameInput).clear(); 
-    await driver.findElement(nameInput).sendKeys(employees.name); 
-    await driver.findElement(phoneInput).clear(); 
-    await driver.findElement(phoneInput).sendKeys(employees.phone); 
-    await driver.findElement(titleInput).clear(); 
-    await driver.findElement(titleInput).sendKeys(employees.title); 
-    await driver.findElement(saveBtn).click();
+   await driver.findElement(newEmployee).click(); 
+   await driver.findElement(nameInput).clear(); 
+   await driver.findElement(nameInput).sendKeys(employees.name); //(employees.name) is calling our array
+   await driver.findElement(phoneInput).clear(); 
+   await driver.findElement(phoneInput).sendKeys(employees.phone); //(employees.phone)calling our array
+   await driver.findElement(titleInput).clear(); 
+   await driver.findElement(titleInput).sendKeys(employees.title); //(employees.title)calling our array
+   await driver.findElement(saveBtn).click();
 }; 
 
 describe("should add employees to employee manager", () => {
