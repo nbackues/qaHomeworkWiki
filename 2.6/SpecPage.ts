@@ -20,7 +20,7 @@ export class SpecPage {
     };
     async sendKeys(elementBy: By, keys: any) {
         await this.driver.wait(until.elementLocated(elementBy));
-        return this.driver.findElement(elementBy).sendkeys(keys);
+        return this.driver.findElement(elementBy).sendKeys(keys);
     };
     async setInput(elementBy: By, keys: any) {
         let input = await this.getElement(elementBy);
