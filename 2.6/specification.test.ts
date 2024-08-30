@@ -6,7 +6,7 @@ const driver: WebDriver = new Builder()
   .withCapabilities(Capabilities.chrome())
   .build();
 
-const page = new SpecPage(driver, 'https://www.google.com/');
+const page = new SpecPage(driver); 'https://www.google.com/';
 
 test("it works", async () => {
   await page.navigate();
