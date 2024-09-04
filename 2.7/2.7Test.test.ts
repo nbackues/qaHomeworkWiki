@@ -35,6 +35,9 @@ let addInterns = async (newInterns) => {
 test('can add the bake off crew',async () => {
     await page.navigate(); 
     await page.getElement(page.addEm); 
+    //write for loop. () tells it what should be happening in the loop, the instructions. i is the placeholder (index) 
+//we are saying if i is less than the amount of newInterns we have listed then we want it to run through the cycle we have in the {} 
+//until it reaches the amount of newInterns we have i++
     for(let i= 0; i < newInterns.length; i ++){
         await addInterns(newInterns[i]); 
     }; 
