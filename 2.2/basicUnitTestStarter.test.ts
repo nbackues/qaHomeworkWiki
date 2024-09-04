@@ -14,6 +14,7 @@ describe("Testing the calculator", () => {
     test("Division works", () => {
       expect(calculator.divide(20, 5)).toBe(4);
     });
+  
     //Create three tests starting on line 16 under the set of }).
 //The first test should test two variables and expect them to equal each other.
 //The second test should test that one number is greater than another.
@@ -33,6 +34,7 @@ test("Less Than", () => {
   let numberTwo: number = 2;
   expect(numberTwo).toBeLessThan(numberOne);
 });
+});
 
 
 
@@ -41,8 +43,18 @@ test("Less Than", () => {
         expect(calculator.divide(calculator.add(2, 2), 4)).toBe(1);
       });
       test("(28/4)*(6/2)*(30-27+(3-4)) == 42", () => {
-        expect(calculator.multiply(calculator.divide(28, 4),calculator.divide(6, 2),calculator.add(calculator.subtract(30, 27),calculator.subtract(3, 4))).toBe(42);
-      });
+        //answer from Mars
+        expect(
+          calculator.multiply(
+            calculator.multiply(
+              calculator.divide(28, 4),
+              calculator.divide(6, 2)
+            ),
+            calculator.add(calculator.subtract(30, 27), calculator.subtract(3, 4))
+          )
+        ).toBe(42);
+       // my attempt --> expect(calculator.multiply(calculator.divide(28, 4),calculator.divide(6, 2),calculator.add(calculator.subtract(30, 27),calculator.subtract(3, 4))).toBe(42);
+      //});
     });
   });
   

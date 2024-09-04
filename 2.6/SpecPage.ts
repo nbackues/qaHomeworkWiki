@@ -1,3 +1,4 @@
+//write a method that can get an element
 import {By, until, WebDriver, WebElement} from 'selenium-webdriver'; 
 
 export class SpecPage {
@@ -12,6 +13,8 @@ export class SpecPage {
         await this.driver.get(this.url);
         await this.driver.wait(until.elementLocated(this.searchBar));
     };
+    //the reason we use 'let element =' and then the finding of that element because 'elementIsVisible' requires a web element
+    //we are setting it as a found web element instead of a given parameter.
     async getElement(elementBy: By): Promise<WebElement> {
         await this.driver.wait(until.elementLocated(elementBy));
         let element = await this.driver.findElement(elementBy);
@@ -28,7 +31,7 @@ export class SpecPage {
         return input.sendKeys(keys);
     };
     async search(searchThing: string) {
-        return this.setInput(this.searchBar, `${searchThing}\n`)
+        return this.setInput(this.searchBar, `${searchThing}\n`);
     };
     async getText(elementBy: By) {
         await this.driver.wait(until.elementLocated(elementBy));
