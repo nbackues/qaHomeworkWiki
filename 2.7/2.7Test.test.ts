@@ -55,3 +55,4 @@ test('can add the bake off crew',async () => {
     }; 
     await page.driver.quit(); 
 });
+//this does not include the maximize command like we did in class notes, which could be added here.
