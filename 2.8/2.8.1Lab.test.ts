@@ -1,3 +1,6 @@
+//import { pageObject } from "./2.7PageObject";
+//const page = new pageObject(); 
+
 class Animal {
     name: string;
     sound: string;
