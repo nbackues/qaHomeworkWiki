@@ -19,7 +19,10 @@ class Animal {
  * @param {string} saltwater - true if the fish is a saltwater fish
  */
  class Fish extends Animal {
+   //saltwater is new, anything new goes above the constructor.
    saltwater: boolean;
+   //the constructor is showing what should apply for fish, 
+   //then in super, we are showing that sound will be null, then calling the new property with this.saltwater
    constructor(name:string, food:string, saltwater:boolean) {
       super(name, null, food);
       this.saltwater = saltwater;
@@ -27,6 +30,7 @@ class Animal {
    soundOff(): string {
       return `The ${this.name} is a fish and does not make sounds.`;
    };
+   //we are using a boolean so we can give options, it's true or false left to right, so "saltwater" true vs "freshwater" false
    habitat(): string {
       return `The ${this.name} is a ${this.saltwater ? "saltwater" : "freshwater"} fish.`
    };
