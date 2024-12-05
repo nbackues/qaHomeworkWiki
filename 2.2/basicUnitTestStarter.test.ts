@@ -24,7 +24,7 @@ test("Equals", () => {
   let helloTwo: string = "hello";
   expect(hello).toEqual(helloTwo)
 });
-test("Greater Then", () => {
+test("Greater Than", () => {
   let firstNumber: number = 2;
   let secondNumber: number = 50;
   expect(secondNumber).toBeGreaterThan(firstNumber);
