@@ -1,5 +1,10 @@
 //LOOPS CLASSES ARRAYS AND SELENIUM
 //!first step is importing everything we need from selenium-webdriver
+//Builder, Capabilities are both chrome driver ones (libraries)
+//By is how we find our locators
+//until is a part of the wait until
+//WebDriver is accessing all the things in the dom
+//WebElemnt is acessing those elements specifically
 import { Builder, Capabilities, By, until, WebDriver, WebElement } from "selenium-webdriver";
 
 const chromedriver = require("chromedriver"); 
@@ -10,8 +15,9 @@ class Employees {
     name: string;
     phone: number;
     title: string;
-//to use the class outside of the {} we need a constructor
+//to use the class outside of the {} as an object we need a constructor
     constructor(name:string, phone:number, title:string) {
+      //this is in reference to the properties above under class and the = name is to reference the parameter on line above
       this.name = name; 
       this.phone = phone; 
       this.title = title; 
@@ -32,8 +38,9 @@ const nameInput: By = By.name("nameEntry");
 const phoneInput: By = By.name("phoneEntry");
 const titleInput: By = By.name("titleEntry");
 const saveBtn: By = By.id("saveBtn"); //or could be By.css('.confirmationButton'); can use if not more than one class, 
-//if more than one, needs to be xpath
+//if more than one class, needs to be xpath
 
+//functions are a list of repeatable things that you can do over and over again
 let myFunc = async (employees) => {
    //Create a function to add an employee.
    await driver.findElement(addEmployee).click(); 
